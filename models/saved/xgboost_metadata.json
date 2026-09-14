@@ -1,0 +1,80 @@
+{
+  "model": "XGBoost",
+  "n_estimators": 756,
+  "feature_names": [
+    "Wind_Speed_10m_Mean_24h",
+    "Temperature_Air_2m_Max_24h",
+    "Temperature_Air_2m_Mean_24h",
+    "Temperature_Air_2m_Min_24h",
+    "Derived_Relative_Humidity_2m_Max_24h",
+    "Derived_Relative_Humidity_2m_Min_24h",
+    "Precipitation_Flux",
+    "ReferenceET_PenmanMonteith_FAO56",
+    "Solar_Radiation_Flux"
+  ],
+  "feature_type": "statistical_45",
+  "sequence_length": 30,
+  "label_map": {
+    "Healthy": 0,
+    "Moderate": 1,
+    "Severe": 2
+  },
+  "scaler": {
+    "mean": [
+      3.2617478370666504,
+      310.7359924316406,
+      304.837890625,
+      301.0288391113281,
+      83.74640655517578,
+      38.913970947265625,
+      1.8937764167785645,
+      5.248177528381348,
+      19640492.0
+    ],
+    "std": [
+      1.256519079208374,
+      7.071876525878906,
+      6.424866676330566,
+      7.360641956329346,
+      12.795381546020508,
+      16.251760482788086,
+      5.096626281738281,
+      1.3817813396453857,
+      4265132.0
+    ]
+  },
+  "metrics_test": {
+    "split": "Test",
+    "accuracy": 0.8122,
+    "balanced_accuracy": 0.6934,
+    "macro_f1": 0.6928,
+    "healthy_precision": 0.9011,
+    "healthy_recall": 0.8663,
+    "healthy_f1": 0.8834,
+    "moderate_precision": 0.6597,
+    "moderate_recall": 0.7311,
+    "moderate_f1": 0.6936,
+    "severe_precision": 0.5216,
+    "severe_recall": 0.4827,
+    "severe_f1": 0.5014,
+    "confusion_matrix": [
+      [
+        12249,
+        1729,
+        161
+      ],
+      [
+        1279,
+        4155,
+        249
+      ],
+      [
+        65,
+        414,
+        447
+      ]
+    ],
+    "roc_auc": 0.9245,
+    "train_time_s": 7.4
+  }
+}

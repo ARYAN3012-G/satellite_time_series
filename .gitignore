@@ -1,0 +1,19 @@
+# Large processed data
+data/processed/
+data/features/
+
+# Trained models weights & sequences (keep models Python files)
+models/saved/*.pt
+models/saved/*.joblib
+models/saved/*.pth
+*.npz
+
+# Results and logs
+logs/
+results/
+.gradio/
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
