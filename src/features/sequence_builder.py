@@ -144,13 +144,19 @@ def build_sequences_for_field(
     return X, y, prev_label, meta
 
 
-def build_sequences_all_fields(labeled_frames: dict) -> tuple:
+def build_sequences_all_fields(labeled_frames: dict,
+                                sequence_length: int = None) -> tuple:
     """Build sequences for every field, then concatenate into one pooled
-    (X, y, prev_label, meta) tuple. labeled_frames: {field_name: DataFrame}."""
+    (X, y, prev_label, meta) tuple. labeled_frames: {field_name: DataFrame}.
+    sequence_length: window size in days (overrides config if given)."""
+    if sequence_length is None:
+        sequence_length = config.SEQUENCE_LENGTH_DAYS
+
     X_list, y_list, pl_list, meta_list = [], [], [], []
 
     for field_name, field_df in labeled_frames.items():
-        X, y, prev_label, meta = build_sequences_for_field(field_df)
+        X, y, prev_label, meta = build_sequences_for_field(
+            field_df, sequence_length=sequence_length)
         if len(y) > 0:
             X_list.append(X)
             y_list.append(y)
